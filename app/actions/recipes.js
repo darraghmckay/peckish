@@ -1,4 +1,4 @@
-import * as types from './types'
+import ActionTypes from '../constants/ActionTypes'
 import Api from '../lib/api'
 
 export function fetchRecipes(ingredients) {
@@ -17,7 +17,7 @@ export function fetchRecipes(ingredients) {
 
 export function setSearchedRecipes({ recipes }) {
   return {
-    type: types.SET_SEARCHED_RECIPES,
+    type: ActionTypes.SET_SEARCHED_RECIPES,
     recipes,
   }
 }

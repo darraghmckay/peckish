@@ -2,13 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { ActionCreators } from '../actions';
 import { bindActionCreators } from 'redux';
-import { appStyle } from '../styles';
+import appStyle from '../styles/app';
 import {
   View,
   Image,
   TouchableHighlight,
-  Text,
-  StyleSheet,
+  Text
 } from 'react-native'
 
 class Detail extends Component {
@@ -35,10 +34,10 @@ class Detail extends Component {
 }
 
 
-function mapStateToProps(state) {
+function mapStateToProps({ searchedRecipes, navigationParams }) {
   return {
-    searchedRecipes: state.searchedRecipes,
-    navigationParams: state.navigationParams,
+    searchedRecipes,
+    navigationParams
   };
 }
 

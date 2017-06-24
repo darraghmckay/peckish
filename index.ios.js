@@ -1,6 +1,6 @@
 import React from 'react'
 import { AppRegistry } from 'react-native'
-import AppContainer from './app/containers/AppContainer'
+import AppContainer from './app/AppContainer'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, combineReducers, compose} from 'redux'
 import thunkMiddleware from 'redux-thunk'

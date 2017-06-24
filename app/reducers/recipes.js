@@ -1,15 +1,21 @@
 import createReducer from '../lib/createReducer'
-import * as types from '../actions/types'
+import ActionTypes from '../constants/ActionTypes'
+import Recipe from '../records/Recipe';
 
-export const searchedRecipes = createReducer({}, {
-  [types.SET_SEARCHED_RECIPES](state, action) {
-    let newState = {}
-    action.recipes.forEach( (recipe) => {
-      let id = recipe.href
-      newState[id] = Object.assign({}, recipe, { id });
+const INITIAL_STATE = {};
+
+export const searchedRecipes = createReducer(INITIAL_STATE, {
+  [ActionTypes.SET_SEARCHED_RECIPES](state, payload) {
+    let newState = {};
+    payload.recipes.forEach((recipe) => {
+      let id = recipe.href;
+      newState[id] = {
+        ...recipe,
+        id
+      };
     });
-    return newState;
-  },
 
+    return newState;
+  }
 });
 

@@ -1,9 +1,8 @@
-import ReactNative from 'react-native';
-const { NavigationExperimental, StatusBar} = ReactNative;
-import * as types from '../actions/types'
+import { NavigationExperimental, StatusBar} from 'react-native';
+import ActionTypes from '../constants/ActionTypes'
 import createReducer from '../lib/createReducer'
-import ApplicationTabs from '../containers/ApplicationTabs'
-import Detail from '../containers/Detail'
+import ApplicationTabs from '../components/ApplicationTabs'
+import Detail from '../components/Detail'
 
 const {
  CardStack: NavigationCardStack,
@@ -15,8 +14,14 @@ const allTabs = [
   (lastRoute) => lastRoute || Object.assign({ key: 'about', index: 1 }),
 ];
 
-export const tabs = createReducer({ index: 0, key: 'home', routes: allTabs }, {
-  [types.SET_TAB](state, action) {
+const INITIAL_STATE = {
+  index: 0, 
+  key: 'home', 
+  routes: allTabs
+}
+
+export const tabs = createReducer(INITIAL_STATE, {
+  [ActionTypes.SET_TAB](state, action) {
     return Object.assign({}, state,  allTabs[action.index]());
   }
 });
@@ -28,18 +33,18 @@ export const navigationState = createReducer({ index: 0,
     ]
   }, {
 
-  [types.NAVIGATION_FORWARD](state, action) {
+  [ActionTypes.NAVIGATION_FORWARD](state, action) {
     return NavigationStateUtils.forward(state);
   },
 
-  [types.NAVIGATION_BACK](state, action) {
+  [ActionTypes.NAVIGATION_BACK](state, action) {
     return NavigationStateUtils.back(state);
   },
 
 });
 
 export const navigationParams = createReducer({ }, {
-  [types.NAVIGATION_FORWARD](state, action) {
+  [ActionTypes.NAVIGATION_FORWARD](state, action) {
     return action.state;
   },
 

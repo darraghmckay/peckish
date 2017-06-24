@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { ActionCreators } from '../../actions';
-import Home from '../Home';
-import About from '../About';
+import Home from '../../containers/Home';
+import About from '../../containers/About';
 
 class ApplicationTabs extends Component {
 

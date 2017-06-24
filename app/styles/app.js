@@ -1,4 +1,4 @@
-export const appStyle = {
+export default {
   resultText: {
     backgroundColor: '#000',
     color: '#FFF',
@@ -7,5 +7,4 @@ export const appStyle = {
   resultImage: {
     height: 150,
   }
-
 }
